@@ -1,6 +1,8 @@
 import User from '../mongodb/models/user.js';
 
-const getAllUsers = async (req, res) => {};
+const getAllUsers = async (req, res) => {
+    await res.status(200).json({ message: "holi"});
+};
 
 
 const createUser = async (req, res) => {

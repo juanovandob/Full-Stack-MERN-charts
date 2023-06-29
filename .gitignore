@@ -23,3 +23,5 @@ logs
 # Editor and IDE files
 .vscode/
 .idea/
+
+mern-dashboard-client/
