@@ -1,8 +1,13 @@
 import express from 'express';
 
 //IMPORT ALL THE CONTROLLERS
-import { createProperty, deleteProperty, getAllProperties, getPropertyDetail, updateProperty } 
-from '../controllers/property.controller.js';
+import { 
+    createProperty,
+    deleteProperty,
+    getAllProperties,
+    getPropertyDetail, 
+    updateProperty 
+}from '../controllers/property.controller.js';
 
 const router = express.Router();  //instancia del router
 

@@ -1,6 +1,8 @@
-import mongoose from 'mongoose';
 import Property from '../mongodb/models/property.js';
 import User from '../mongodb/models/user.js';
+
+import mongoose from "mongoose";
+//import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 
 //cloudinary
@@ -117,13 +119,14 @@ const deleteProperty = async (req, res) => {
         const propertyToDelete = await Property.findById({ _id: id }).populate(
             "creator",
         );
-
+        console.log(typeof(propertyToDelete));
         if (!propertyToDelete) throw new Error("Property not found");
 
         const session = await mongoose.startSession();
         session.startTransaction();
 
-        propertyToDelete.remove({ session });
+        propertyToDelete.deleteOne({ session });
+        //propertyToDelete.remove({ session });  //version antigua de mongoose
         propertyToDelete.creator.allProperties.pull(propertyToDelete);
 
         await propertyToDelete.creator.save({ session });

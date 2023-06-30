@@ -18,7 +18,7 @@ app.use(express.json({ limit: "50mb" }));
 
 app.get('/', (req, res) =>{
     res.send({ message: 'Hello project 3' });
-})
+});
 
 //Se hace el llamado a los routes como middlewares
 app.use('/api/v1/users', userRouter);
