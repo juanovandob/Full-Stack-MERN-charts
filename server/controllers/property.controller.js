@@ -22,7 +22,8 @@ cloudinary.config({
 const getAllProperties = async (req, res) => {
     try {
         const properties = await Property.find({}).limit(req.query._end);
-
+        const propertyCount = await Property.countDocuments({});
+        console.log(propertyCount);
         res.status(200).json(properties);
 
     } catch (error) {
